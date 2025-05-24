@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            width: 300px;
+            margin-right: 10px;
+        }
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .results {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hybrid Movie Recommendation System</h1>
+    <form method="POST">
+        <label for="user_id">User ID:</label><br>
+        <input type="number" name="user_id" required><br><br>
+
+        <label for="movie">Liked Movie:</label><br>
+        <input type="text" name="movie" required><br><br>
+
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    {% if recommendations %}
+        <div class="results">
+            <h3>Recommended Movies:</h3>
+            <ul>
+                {% for rec in recommendations %}
+                    <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>
